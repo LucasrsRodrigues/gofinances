@@ -1,4 +1,6 @@
 import 'react-native-gesture-handler';
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 
 import React from 'react';
 import AppLoading from 'expo-app-loading';
@@ -15,6 +17,7 @@ import {
 import { AppRouter } from './src/routes/app.routes';
 
 import theme from './src/global/styles/theme';
+import { StatusBar } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,6 +32,10 @@ export default function App() {
 
   return(
     <ThemeProvider theme={theme}>
+      <StatusBar 
+        animated={true}
+        backgroundColor={theme.colors.primary}
+      />
       <NavigationContainer>
         <AppRouter />
       </NavigationContainer>
